@@ -13,10 +13,10 @@ export const NAV_ITEMS: NavItems = {
         path: '/tags',
         title: 'tags'
     },
-    media: {
-        path: '/media',
-        title: 'media'
-    },
+    // media: {
+    //     path: '/media',
+    //     title: 'media'
+    // },
     about: {
         path: '/about',
         title: 'about'
@@ -25,13 +25,13 @@ export const NAV_ITEMS: NavItems = {
 
 export const SITE = {
     // Your site's detail?
-    name: 'My Personal Blog',
+    name: "Prasen's blog",
     title: "Prasen Shakya's Blog",
     description: 'This is my personal blog site',
     url: 'https://astro-ink.vercel.app',
     githubUrl: 'https://github.com/shakyaprasen/personal-blog',
     listDrafts: true,
-    image: 'https://raw.githubusercontent.com/one-aalam/astro-ink/main/public/astro-banner.png',
+    image: 'https://avatars.githubusercontent.com/u/44523852?v=4',
     // YT video channel Id (used in media.astro)
     ytChannelId: '',
     // Optional, user/author settings (example)
@@ -40,7 +40,7 @@ export const SITE = {
     // Author: Twitter handler
     authorTwitter: 'ShakyaPrasen', // Example: FredKSchott
     // Author: Image external source
-    authorImage: '', // Example: https://pbs.twimg.com/profile_images/1272979356529221632/sxvncugt_400x400.jpg, https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png
+    authorImage: 'https://avatars.githubusercontent.com/u/44523852?v=4', // Example: https://pbs.twimg.com/profile_images/1272979356529221632/sxvncugt_400x400.jpg, https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png
     // Author: Bio
     authorBio: 'Mostly a curious javascript developer surfing these treacherous technology waters.'
 }

@@ -32,7 +32,7 @@ export default defineConfig( /** @type {import('astro').AstroUserConfig} */{
   site: 'https://astro-ink.vercel.app',
   // Your public domain, e.g.: https://my-site.dev/. Used to generate sitemaps and canonical URLs.
   server: {
-    // port: 3000,         // The port to run the dev server on.
+    port: 3000,         // The port to run the dev server on.
   },
   integrations: [mdx(),
     // markdoc(), // disabled now due to an issue with Vercel builds

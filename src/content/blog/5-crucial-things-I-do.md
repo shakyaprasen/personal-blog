@@ -1,6 +1,6 @@
 ---
 title: 5 crucial things that I do before deploying my code
-description: There's a simple secret to building a faster website — just ship less.
+description: This is a blog post on five things I do before deploying my code as a developer.
 tags:
   - programming habits
   - productivity

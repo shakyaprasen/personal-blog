@@ -7,9 +7,11 @@ tags:
   - push notification
   - AWS
   - mobile development
+  - iOS
+  - Android
 author: Prasen Shakya 
 authorTwitter: ShakyaPrasen
-date: "2023-04-09T10:12:48.297Z"
+date: "2023-04-14T08:47:44.103Z"
 image: https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.CnDNKwfCi_BIMBYOinToNAHaCr%26pid%3DApi&f=1&ipt=2ab0fcc6f3aa539bc1529ded427113b5bc575b6d72cd7b457fe441046ee63657&ipo=images
 category: development
 ---
@@ -35,6 +37,28 @@ Well that's all well and done, now all there's left is to add the device token (
 
 ![Push tests](https://imgur.com/Vlh9TQ5.png)
 
-Well, not quite. Installing the application to an Android phone and testing the feature through the new notification option under cloud messaging in Firebase console and seemed to work. But, making it work on IPhones was a whole another story for next time.
+Now, the next thing left to do was just send a message using the AWS sdk to SNS and the SNS should in theory forward it to Google Cloud Messaging (GCM), and it should handle the rest.
+
+While sending the message to GCM, AWS documentation gives lots of options for message formatting for each type of platform(iOS and Android). I had to find out the hard way that since we are sending the push notification first to GCM and only then to the user's device, I needed to send the message to GCM specifically without regard to the platform. 
+
+The final message needed to be JSON stringified before sending and looked something like this:
+
+```javascript
+    const gcm = {
+      notification: {
+        body: messageOptions.message,
+        title: messageOptions.title || 'Untapped notification.',
+      },
+    };
+    const payload = {
+      default: messageOptions.message,
+      GCM: JSON.stringify(gcm),
+    };
+
+    const stringifiedPayload = JSON.stringify(payload);
+```
+
+I was almost done with the push notification well, not quite. Installing the application to an Android phone and testing the feature through the new notification option under cloud messaging in Firebase console and seemed to work. But, making it work on iOS devices was a whole another story for next time.
+
 
 

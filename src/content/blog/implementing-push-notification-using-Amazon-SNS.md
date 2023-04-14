@@ -46,12 +46,12 @@ The final message needed to be JSON stringified before sending and looked someth
 ```javascript
     const gcm = {
       notification: {
-        body: messageOptions.message,
-        title: messageOptions.title || 'Untapped notification.',
+        body: 'Hello this is a test message description.',
+        title: 'You got a push notification!',
       },
     };
     const payload = {
-      default: messageOptions.message,
+      default: 'This is a default message.',
       GCM: JSON.stringify(gcm),
     };
 

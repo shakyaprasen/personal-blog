@@ -1,24 +1,35 @@
 import type { APIRoute } from 'astro'
+import { createClient } from '@supabase/supabase-js'
 // import Redis from 'ioredis'
 // In development/HMR, you can accidentally make this call numerous times and exceed your quota...
 // const client = new Redis(import.meta.env.REDIS_URI)
 // so you can replace the above line with...
-const client = new Map<string, number>()
+const supabaseUrl = import.meta.env.SUPABASE_URL 
+const supabaseKey = import.meta.env.SUPABASE_KEY
+const supabase = createClient(supabaseUrl, supabaseKey)
+
 // the API surface we've used is largely equal
 
 // PostgreSQL, Redis
 // Supabase,
 const getViewsBySlug = async (slug: string): Promise<number> =>  {
     if(slug) {
-        const prevValue = await client.get(slug)
-        let newValue = 1
-        if(prevValue) {
-            newValue = parseInt(prevValue) + 1
-            await client.set(slug, newValue)
-        } else {
-            await client.set(slug, 1)
+        try {
+        const viewsTable = await supabase.from('views').select().eq('slug', slug)
+        if (!viewsTable.data.length) {
+          const res = await supabase.from('views').insert({ slug, views: 1 })
+          console.log(res)
+          return 1
         }
+        const prevValue = viewsTable.data[0].views
+        const newValue = prevValue + 1
+        const response = await supabase.from('views').update({ views: newValue }).eq('slug', slug)
+        console.log(response)
         return newValue
+      } catch(e) {
+        console.error(e)
+        return 0
+      }
     } else {
         return 0
     }

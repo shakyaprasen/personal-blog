@@ -1,5 +1,5 @@
 ---
-title: Implementing push notification using Amazon's SNS
+title: Implement push notification using Amazon's SNS
 description: How I implemented push notification system using Amazon's SNS 
 tags:
   - how to

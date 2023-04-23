@@ -24,11 +24,12 @@ have do something like this again.
 ## Mysql Deployment
 
 First things first, for running our own MySQL instance we need to create a 
-deployment. A deployment in Kubernetes is just a configuration where the desired
-state for a pod or ReplicaSet can.
+deployment. A deployment in Kubernetes is just a configuration to express the
+desired state for a Pod or ReplicaSet.
 
-So, our deployment config *mysql/deployment.yaml* should looked something like
+So, our deployment config *mysql/deployment.yaml* should look something like
 this:
+
 
 ```yaml
 apiVersion: apps/v1
@@ -69,15 +70,15 @@ ${MYSQL_PASSWORD}, ${MYSQL_USERNAME}* should be populated preferrably using
 kubernetes secrets.
 
 After changing the mentioned variables, you can run *kubectl apply -f 
-./mysql/deployment.yaml* to launch the mysql deployment.
+./mysql/deployment.yaml* to run the mysql deployment.
 
 
 ## Mysql Service
 
-So, the mysql deployment is up and running, how do our pods and services inside
-the Kubernetes cluster connect to the running MySQL server? The answer is easy,
-using Kubernetes Service. A Kuberentes Service exposes an application, in our
-case the MySQL server to othe applications.
+So, the mysql deployment is up and running, now how do our pods and services 
+inside the Kubernetes cluster connect to the running MySQL server? The answer is easy,
+Kubernetes Service. A Kuberentes Service exposes an application, in our case 
+the MySQL server to othe applications.
 
 Let's write the Service config *mysql/service.yaml*:
 
@@ -95,18 +96,19 @@ spec:
 
 ```
 
+Run *kubectl apply -f .mysql/service.yaml* to run the service.
+
 This exposes the MySQL server so that other applications/services can connect 
 using the 3306 port on *mysql-database* service name.
 
-Run *kubectl apply -f .mysql/service.yaml* to run the service.
 
 ### Persistent Volume
 
 The last thing that we missed is to configure the MySQL server so that even if
 the server restarts, our data does not dissapear. In our current configuration,
-we have not specified any place to store our data which preserves it in case of
-restarts. Persistent Volume is a way in Kuberentes to store data in a persistent
-way. It provides an API to store data independent of the type of data storage 
+we have not specified the place to store our data in case of restarts. 
+Persistent Volume is a way in Kuberentes to store data in a persistent way. 
+It provides an API to store data independent of the type of data storage 
 i.e. Block Storage, NFS, etc and independent of the lifecycle of any pod that
 uses it.
 
@@ -137,6 +139,23 @@ volumeBindingMode: Immediate
 Run *kubectl apply -f ./storage-class.yaml* to create a storage class with the
 above configuration.
 
+*Note: If you are running this config in your local kuberentes cluster like on a
+Minikube or Docker Desktop, you will have to change the provisioner to 
+*k8s.io/minikube-hostpath* or *docker.io/hostpath* depending on where the cluster
+is hosted in your local system.
+
+```yaml
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: standard
+provisioner: docker.io/hostpath 
+reclaimPolicy: Retain
+allowVolumeExpansion: true
+mountOptions:
+  - debug
+volumeBindingMode: Immediate
+```
 
 Then we will be creating only a Persistent Volume Claim using the name of the
 Storage Class previously defined i.e. *standard*. Save this configuration to
@@ -160,6 +179,9 @@ spec:
 
 Run the command *kubectl apply -f ./mysql/persistent-volume-claim.yaml* to 
 create a persistent volume and persistent volume claim.
+
+
+## Putting it all together
 
 Finally, we will mount the volume that we have just claimed to our mysql server.
 So, the final deployment file will be:

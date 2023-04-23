@@ -139,10 +139,10 @@ volumeBindingMode: Immediate
 Run *kubectl apply -f ./storage-class.yaml* to create a storage class with the
 above configuration.
 
-*Note: If you are running this config in your local kuberentes cluster like on a
+__Note: If you are running this config in your local kuberentes cluster like on a
 Minikube or Docker Desktop, you will have to change the provisioner to 
 *k8s.io/minikube-hostpath* or *docker.io/hostpath* depending on where the cluster
-is hosted in your local system.
+is hosted in your local system.__
 
 ```yaml
 apiVersion: storage.k8s.io/v1

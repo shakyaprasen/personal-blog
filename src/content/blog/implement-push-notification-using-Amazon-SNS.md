@@ -3,12 +3,12 @@ title: Implement push notification using Amazon's SNS
 description: How I implemented push notification system using Amazon's SNS 
 tags:
   - how to
-  - Amazon SNS
+  - amazon sns
   - push notification
-  - AWS
+  - aws
   - mobile development
-  - iOS
-  - Android
+  - ios
+  - android
 author: Prasen Shakya 
 authorTwitter: ShakyaPrasen
 date: "2023-04-14T08:47:44.103Z"

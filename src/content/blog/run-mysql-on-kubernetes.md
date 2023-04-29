@@ -3,9 +3,9 @@ title: Run MySQL database on kubernetes
 description: A simple how to on running an instance of MySQL database on a Kubernetes cluster
 tags:
   - how to
-  - Dev Ops
-  - Mysql 
-  - Kuberentes
+  - dev ops
+  - mysql 
+  - kuberentes
 author: Prasen Shakya 
 authorTwitter: ShakyaPrasen
 date: "2023-04-22T11:37:54.082Z"

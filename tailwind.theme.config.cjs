@@ -126,11 +126,11 @@ module.exports = {
      */
     rosegarden: {
         colors: {
-            primary: colors.rose[700],
+            primary: colors.rose[600],
             secondary: colors.rose[800],
             dark: {
-                primary: colors.rose[300],
-                secondary: colors.rose[500]
+                primary: colors.slate[100],
+                secondary: colors.slate[300]
             },
             accent: {
                 gray: {

@@ -31,7 +31,7 @@ You might be thinking there are other libraries which do the same like Zod, Yup,
 	Due to the modular design, the Valibot code is tree-shakeable i.e. only the code that is used is packaged into the final bundle. This results in a significantly smaller bundle size in comparison to other schema library.
 	
 - Typescript Similarities/Type inference
-	Another feature of Valibot is that typescript types can be inferred from a Valibot Schema. You can use `Input` or `Output` on a Schema to get input, output of the Schema respectively. You could do `Output<typeof PersonSchema>` to get a Typescript type derived from the PersonSchema. Additionally, Typescript options like Partial, Pick, Omit, Required, etc also have their counterparts in Valibot as partial, pick, omit, required respectively.
+	Another feature of Valibot is that typescript types can be inferred from a Valibot Schema. You can use *Input* or *Output* on a Schema to get input, output of the Schema respectively. You could do *Output<typeof PersonSchema>* to get a Typescript type derived from the PersonSchema. Additionally, Typescript options like Partial, Pick, Omit, Required, etc also have their counterparts in Valibot as partial, pick, omit, required respectively.
 
 
 ### Is it production ready?
@@ -46,14 +46,14 @@ Currently you can use Million.js in two modes Automatic and Manual.
 
 Use automatic mode for when you want Million.js to automatically analyzes your components and figures out which ones it needs to optimize.
 
-If you want fine tuned control over which components you want Million.js to speed up. Using this mode requires you to know and use it's concepts like `Blocks`, `For`, `Macro`, etc. 
+If you want fine tuned control over which components you want Million.js to speed up. Using this mode requires you to know and use it's concepts like *Blocks*, *For*, *Macro*, etc. 
 
 ## Is it production ready?
 Million.js is currently on v.2.5.13 with 66 contributors and regular updates with good documentation and support for major React frameworks like Next.js, Astro, etc as well as other bunders/compilers like Vite, Webpack, Rollup, etc. Use Million.js if you want to improve render speed for your React components with React 18 and up.
 
 ## Additional reading
-[Dive into virtual DOM in React and Million](https://million.dev/blog/virtual-dom)
-[Behind the block()](https://million.dev/blog/behind-the-block)
+[Dive into virtual DOM in React and Million](https://million.dev/blog/virtual-dom)  
+[Behind the block()](https://million.dev/blog/behind-the-block)  
 
 - React Server Components
 React Server are a new paradigm in the React ecosystem. This model for building applications allows different parts of your application to be rendered/managed in either client side or the server side. This might sound a bit confusing, normally we either do full Single Page Applications (SPAs) or do Server Side Rendering(SSR) which are concerned with either client side or server side respectively. 
@@ -73,6 +73,8 @@ Even though it adds a mental overhead for the developers, it provides the follow
 React Server Components is usable from React 18. It is recommended to use a meta framework for React to use server components instead of directly using RSC from React. Frameworks like Next.js as well as Hydrogen support and provide a great interface to use server components. If you can justify the tradeoff between the development/mental overhead against the listed advantages then you can start using React Server Components today.
 
 ## Additional reading
-[Server Components From Scratch - Dan Abramov](https://github.com/reactwg/server-components/discussions/5)
-[Initial demo/talk for React Server Components](https://react.dev/blog/2020/12/21/data-fetching-with-react-server-components)
-[Next.js server components doc](https://nextjs.org/docs/getting-started/react-essentials#server-components)
+[Server Components From Scratch - Dan Abramov](https://github.com/reactwg/server-components/discussions/5)  
+[Initial demo/talk for React Server Components](https://react.dev/blog/2020/12/21/data-fetching-with-react-server-components)  
+[Next.js server components doc](https://nextjs.org/docs/getting-started/react-essentials#server-components)  
+
+

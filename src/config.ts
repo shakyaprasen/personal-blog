@@ -25,9 +25,9 @@ export const NAV_ITEMS: NavItems = {
 
 export const SITE = {
     // Your site's detail?
-    name: "Prasen Shakya blog",
-    title: "Prasen Shakya Blog",
-    description: 'Prasen Shakya Blog site for ',
+    name: "Prasen Shakya's blog",
+    title: "Prasen Shakya's Blog",
+    description: 'Prasen Shakya Blog site for all things Web dev',
     url: 'https://www.prasenshakya.com.np/',
     githubUrl: 'https://github.com/shakyaprasen/personal-blog',
     listDrafts: true,

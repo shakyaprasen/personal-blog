@@ -48,7 +48,7 @@ Use automatic mode for when you want Million.js to automatically analyzes your c
 
 If you want fine tuned control over which components you want Million.js to speed up. Using this mode requires you to know and use it's concepts like *Blocks*, *For*, *Macro*, etc. 
 
-## Is it production ready?
+### Is it production ready?
 Million.js is currently on v.2.5.13 with 66 contributors and regular updates with good documentation and support for major React frameworks like Next.js, Astro, etc as well as other bunders/compilers like Vite, Webpack, Rollup, etc. Use Million.js if you want to improve render speed for your React components with React 18 and up.
 
 ## Additional reading
@@ -70,7 +70,7 @@ Even though it adds a mental overhead for the developers, it provides the follow
 - Better User Experience(UX) for the client due to data streaming and Suspense.
 
 
-## Is it production ready?
+### Is it production ready?
 React Server Components is usable from React 18. It is recommended to use a meta framework for React to use server components instead of directly using RSC from React. Frameworks like Next.js as well as Hydrogen support and provide a great interface to use server components. If you can justify the tradeoff between the development/mental overhead against the listed advantages then you can start using React Server Components today.
 
 ## Additional reading

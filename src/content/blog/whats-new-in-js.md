@@ -55,7 +55,8 @@ Million.js is currently on v.2.5.13 with 66 contributors and regular updates wit
 [Dive into virtual DOM in React and Million](https://million.dev/blog/virtual-dom)  
 [Behind the block()](https://million.dev/blog/behind-the-block)  
 
-- React Server Components
+## React Server Components
+
 React Server are a new paradigm in the React ecosystem. This model for building applications allows different parts of your application to be rendered/managed in either client side or the server side. This might sound a bit confusing, normally we either do full Single Page Applications (SPAs) or do Server Side Rendering(SSR) which are concerned with either client side or server side respectively. 
 Server Components allows parts of an application to be rendered on the server with Rehydration and other interactive parts to be rendered in the the client's browser. 
 Let's think of it this way, a simple component which fetches data and renders it in a list would be a prime candidate for a server component. Since, the server is closer to the database, the initial load times are faster. The bundle size is also smaller since the server renders the list and sends it to the client.
